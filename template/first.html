@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+@media (min-width: 992px){
+	.dropdown-menu.dropdown-toggle:after{
+		border-top: .3em solid transparent;
+	    border-right: 0;
+	    border-bottom: .3em solid transparent;
+	    border-left: .3em solid;
+	}
+	.dropdown-menu .dropdown-menu{
+		margin-left:0; margin-right: 0;
+	}
+	.dropdown-menu li{
+		position: relative;
+	}
+	.nav-item .submenu{
+		display: none;
+		position: absolute;
+		left:100%; top:-7px;
+	}
+	.nav-item .submenu-left{
+		right:100%; left:auto;
+	}
+	.dropdown-menu > li:hover{ background-color: #f1f1f1 }
+	.dropdown-menu > li:hover > .submenu{
+		display: block;
+	}
+}
+
+</style>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+<div class="collapse navbar-collapse">
+<ul class="navbar-nav">
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" style="color:white">  Fix Your Location </a>
+    <ul class="dropdown-menu">
+	  <li><a class="dropdown-item" href="#"> K E R A L A &raquo</a>
+		 <ul class="submenu dropdown-menu">
+		    <li><a class="dropdown-item" href=""> Thrissur</a></li>
+		    <li><a class="dropdown-item" href=""> calicut</a></li>
+
+		    <li><a class="dropdown-item" href=""> Palakkad &raquo </a>
+                <ul class="submenu dropdown-menu">
+                    <li><a class="dropdown-item" href=""> Pattambi &raquo </a>
+                         <ul class="submenu dropdown-menu">
+                             <li><a class="dropdown-item" href=""> Pattambi</a></li>
+                             <li><a class="dropdown-item" href=""> koottanad</a></li>
+                             <li><a class="dropdown-item" href=""> Peringod</a></li>
+                             <li><a class="dropdown-item" href=""> thrithala</a></li>
+                         </ul>
+                    </li>
+                    <li><a class="dropdown-item" href=""> alathur</a></li>
+                    <li><a class="dropdown-item" href=""> ottappalam</a></li>
+                    <li><a class="dropdown-item" href=""> palakkad</a></li>
+                </ul>
+		    </li>
+		 </ul>
+	  </li>
+    </ul>
+</li>
+</ul>
+
+</div> <!-- navbar-collapse.// -->
+</nav>
+
+<br><br><br><br><br><br>
+    <div class="d-flex justify-content-center mt-3 logout_container">
+        <a href="logout" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">L O G O U T</a>
+    </div>
+
+<script>
+    // Prevent closing from click inside dropdown
+$(document).on('click', '.dropdown-menu', function (e) {
+  e.stopPropagation();
+});
+
+// make it as accordion for smaller screens
+if ($(window).width() < 992) {
+  $('.dropdown-menu a').click(function(e){
+    e.preventDefault();
+      if($(this).next('.submenu').length){
+        $(this).next('.submenu').toggle();
+      }
+      $('.dropdown').on('hide.bs.dropdown', function () {
+     $(this).find('.submenu').hide();
+  })
+  });
+}
+</script>
+
+</body>
+</html>
